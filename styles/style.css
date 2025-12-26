@@ -4,7 +4,6 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
@@ -13,4 +12,131 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font);
+  font-variation-settings: var(--font-weight-card-text, 410);
+  color: var(--text-color);
+  font-size: 18px;
+  background-image:
+  var(--bc-gradient,
+  repeating-linear-gradient(to right, #d3d3d3 0px 2px, transparent 2px 4px),
+  repeating-linear-gradient(to bottom, #d3d3d3 0px 2px, transparent 2px 4px),
+  repeating-linear-gradient(to bottom, #e7e7e7 0% 0.01%, #1a1a1a 100%));
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.header {
+  justify-self: center;
+  margin-block-start: 100px;
+  margin-block-end: 98px;
+  padding: clamp(122px, 119.18px + 0.75vw, 130px) clamp(16px, -21.50px + 10.00vw, 122.5px);
+  inline-size: var(--inline-size, clamp(375px, 260.56px + 30.52vw, 700px));
+  block-size: clamp(327px, 312.56px + 3.85vw, 368px);
+  background-color: var(--bc-color, #fff);
+  border: var(--border, 2px solid var(--text-color, #000));
+  font-family: var(--accent-font);
+  text-align: center;
+}
+
+.logo {
+  font-size: clamp(49px, 43.37px + 1.50vw, 65px);
+  margin-block-end: 20px;
+}
+
+.header__title {
+  font-size: clamp(14px, 10.83px + 0.85vw, 23px);
+}
+
+.content {
+  justify-self: center;
+}
+
+.card {
+  inline-size: var(--inline-size, clamp(375px, 260.56px + 30.52vw, 700px));
+  block-size: 100%;
+  background-color: var(--bc-color, #fff);
+  border: var(--border, 2px solid var(--text-color, #000));
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.card__title {
+  font-family: inherit;
+  font-size: inherit;
+  font-variation-settings: var(--font-weight-title, 715);
+  padding: 4px 10px;
+}
+
+.card__image-item {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  mix-blend-mode: hard-light;
+  text-shadow: 0 0 1px var(--bc-color, #fff);
+  opacity: 50%;
+}
+
+@supports (text-stroke: 1px var(--text-stroke-color, #fff)) or (-webkit-text-stroke: 1px var(--text-stroke-color, #fff)) {
+  .label {
+    -webkit-text-stroke: 1px var(--text-stroke-color, #fff);
+    text-stroke: 1px var(--text-stroke-color, #fff);
+    text-shadow: none;
+  }
+}
+
+.card__image {
+  width: 100%;
+  height: clamp(371px, 256.56px + 30.52vw, 696px);
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__text {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 21px;
+  margin: 25px 25px 0;
+}
+
+.card p:not(:first-of-type) {
+  margin-block-end: 25px;
+}
+
+.buttons {
+  justify-self: end;
+  margin-inline-end: 25px;
+  align-self: center;
+  margin-block-end: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.button {
+  border: var(--border, 2px solid var(--text-color, #000));
+  padding: 9px 37px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 90%;
+  background-color: var(--bc-color, #fff);
+  cursor: pointer;
+  align-self: end;
+}
+
+.save__button {
+  padding: 15px 20px;
+}
+
+.save__button svg {
+  width: 21px;
+  height: 21px;
 }
