@@ -31,10 +31,10 @@
 .header {
   justify-self: center;
   margin-block-start: 100px;
-  margin-block-end: 98px;
+  margin-block-end: 97px;
   padding: clamp(122px, 119.18px + 0.75vw, 130px) clamp(16px, -21.50px + 10.00vw, 122.5px);
+  max-block-size: 368px;
   inline-size: var(--inline-size, clamp(375px, 260.56px + 30.52vw, 700px));
-  block-size: clamp(327px, 312.56px + 3.85vw, 368px);
   background-color: var(--bc-color, #fff);
   border: var(--border, 2px solid var(--text-color, #000));
   font-family: var(--accent-font);
@@ -44,14 +44,23 @@
 .logo {
   font-size: clamp(49px, 43.37px + 1.50vw, 65px);
   margin-block-end: 20px;
+  margin-block-start: -2px;
 }
 
 .header__title {
   font-size: clamp(14px, 10.83px + 0.85vw, 23px);
+  text-transform: uppercase;
 }
 
 .content {
   justify-self: center;
+}
+
+.card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-block-end: 100px;
 }
 
 .card {
@@ -67,7 +76,7 @@
   font-family: inherit;
   font-size: inherit;
   font-variation-settings: var(--font-weight-title, 715);
-  padding: 4px 10px;
+  padding: 6px 10px;
 }
 
 .card__image-item {
@@ -98,13 +107,14 @@
   height: clamp(371px, 256.56px + 30.52vw, 696px);
   object-fit: cover;
   object-position: center;
+  box-shadow: 0 2px 0 var(--text-color, #000), 0 -2px 0 var(--text-color, #000);
 }
 
 .card__text {
   font-family: inherit;
   font-size: inherit;
   line-height: 21px;
-  margin: 25px 25px 0;
+  margin: 24px 25px 0;
 }
 
 .card p:not(:first-of-type) {
@@ -117,19 +127,27 @@
   align-self: center;
   margin-block-end: 25px;
   display: flex;
-  justify-content: center;
-  gap: 12px;
+  align-items: end;
+  gap: 6px;
+}
+
+.like-icon {
+  margin-block-start: 5px;
 }
 
 .button {
   border: var(--border, 2px solid var(--text-color, #000));
-  padding: 9px 37px;
+  padding: 10px 35px;
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 90%;
   background-color: var(--bc-color, #fff);
   cursor: pointer;
   align-self: end;
+}
+
+.card__list li:last-of-type {
+  align-self: center;
 }
 
 .save__button {
