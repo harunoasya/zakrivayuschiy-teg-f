@@ -11,6 +11,8 @@
 const likeHeartArray = document.querySelectorAll('.like-icon');
 const likeButtonArray = document.querySelectorAll('.card__like-button');
 const iconButtonArray = document.querySelectorAll('.card__icon-button');
+const dialog = document.getElementById('modalDialog');
+ const closeButton = document.getElementById('closeButton');
 
 iconButtonArray.forEach((iconButton, index) => {
   iconButton.onclick = () =>
@@ -39,3 +41,15 @@ function setButtonText(heart, button) {
     );
   }
 }
+
+function openDialog() {
+     dialog.showModal();
+     document.body.classList.add('no-scroll');
+   }
+
+   function closeDialog() {
+     dialog.close();
+     document.body.classList.remove('no-scroll');
+   }
+
+   closeButton.addEventListener('click', closeDialog);

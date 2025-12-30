@@ -31,7 +31,7 @@
 .header {
   justify-self: center;
   margin-block-start: 100px;
-  margin-block-end: 97px;
+  margin-block-end: 98px;
   padding: clamp(122px, 119.18px + 0.75vw, 130px) clamp(16px, -21.50px + 10.00vw, 122.5px);
   max-block-size: 368px;
   inline-size: var(--inline-size, clamp(375px, 260.56px + 30.52vw, 700px));
@@ -76,7 +76,7 @@
   font-family: inherit;
   font-size: inherit;
   font-variation-settings: var(--font-weight-title, 715);
-  padding: 6px 10px;
+  padding: 5px 10px;
 }
 
 .card__image-item {
@@ -114,7 +114,7 @@
   font-family: inherit;
   font-size: inherit;
   line-height: 21px;
-  margin: 24px 25px 0;
+  margin: 25px 25px 0;
 }
 
 .card p:not(:first-of-type) {
@@ -151,10 +151,17 @@
 }
 
 .save__button {
-  padding: 15px 20px;
+  padding: 15px 16px;
 }
 
 .save__button svg {
   width: 21px;
   height: 21px;
+}
+
+.modal-dialog__save[open] {
+  display: flex;
+  border: none;
+  cursor: default;
+  gap: 20px;
 }

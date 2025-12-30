@@ -358,7 +358,7 @@
         </li>
         <li>
           <span>
-            <button class="button button__text save__button">
+            <button class="button button__text save__button" onclick="openDialog()">
             <svg>
              <use href="./svg/floppy.svg#floppy"></use>
             </svg>
@@ -366,6 +366,16 @@
          </span>
         </li>
       </ul>
+      <dialog id="modalDialog">
+        <span>
+            <button class="button button__text save__button modal-dialog__save">
+            <svg>
+             <use href="./svg/floppy.svg#floppy"></use>
+            </svg>
+              Вставьте дискету, чтобы продолжить</button>
+         </span>
+         <button id="closeButton">ок</button>
+      </dialog>
     </main>
     <script src="./scripts/like.js"></script>
   </body>
