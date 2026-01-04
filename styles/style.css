@@ -36,7 +36,7 @@
   position: absolute;
   top: -2px;
   right: -2px;
-  bottom: -2px; 
+  bottom: -2px;
   left: -2px;
   z-index: -1;
   border: var(--border, 2px solid var(--text-color, #000));
@@ -79,7 +79,7 @@
   position: absolute;
   top: -2px;
   right: -2px;
-  bottom: -2px; 
+  bottom: -2px;
   left: -2px;
   z-index: -1;
   border: var(--border, 2px solid var(--text-color, #000));
@@ -89,14 +89,14 @@
   padding: 5px 10px;
   font-family: inherit;
   font-size: inherit;
-  font-variation-settings: var(--font-weight-title, 715);
+  font-variation-settings: var(--font-weight-title, 785);
 }
 
 .card__image-item {
   position: relative;
-  display: block; 
-  margin: 0; 
-  padding: 0; 
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .label {
@@ -160,10 +160,6 @@
   margin-block-end: 24px;
 }
 
-.like-icon {
-  margin-block-start: 5px;
-}
-
 .button {
   position: relative;
   border: var(--border, 2px solid var(--text-color, #000));
@@ -184,16 +180,16 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background-color: var(--accent-color, #000); 
-  transition: transform 0.5s ease-in-out; 
+  background-color: var(--accent-color, #000);
+  transition: transform 0.5s ease-in-out;
 }
 
 .button:hover::before {
-  transform: translateX(100%); 
+  transform: translateX(100%);
 }
 
 .modal-dialog__save:hover::before {
-  transform: none; 
+  transform: none;
 }
 
 .button span {
@@ -314,6 +310,7 @@
 }
 
 .like-icon {
+  margin-block-start: 5px;
   transform-origin: center;
   cursor: pointer;
 }

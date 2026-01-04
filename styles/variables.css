@@ -1,7 +1,7 @@
 :root {
   --accent-font: 'PressStart2P', monospace ;
   --main-font: 'Inter-Virable', sans-serif;
-  --font-weight-title: 715;
+  --font-weight-title: 785;
   --font-weight-card-text: 410;
   --bc-gradient:
   repeating-linear-gradient(to right, #d3d3d3 0px 2px, transparent 2px 4px),
