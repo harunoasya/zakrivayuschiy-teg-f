@@ -1,20 +1,8 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+  display: grid;
+  grid-template-columns: 1fr;
+  color: var(--text-color, #000);
   font-family: var(--main-font);
-  font-variation-settings: var(--font-weight-card-text, 410);
-  color: var(--text-color);
   font-size: 18px;
   background-image:
   var(--bc-gradient,
@@ -24,27 +12,40 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  display: grid;
-  grid-template-columns: 1fr;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  font-variation-settings: var(--font-weight-card-text, 410);
 }
 
 .header {
+  position: relative;
   justify-self: center;
   margin-block-start: 100px;
-  margin-block-end: 98px;
+  margin-block-end: 102px;
   padding: clamp(122px, 119.18px + 0.75vw, 130px) clamp(16px, -21.50px + 10.00vw, 122.5px);
-  max-block-size: 368px;
-  inline-size: var(--inline-size, clamp(375px, 260.56px + 30.52vw, 700px));
-  background-color: var(--bc-color, #fff);
-  border: var(--border, 2px solid var(--text-color, #000));
   font-family: var(--accent-font);
   text-align: center;
+  background-color: var(--bc-color, #fff);
+  max-block-size: 368px;
+  max-inline-size: 700px;
+  inline-size: var(--inline-size, clamp(375px, 260.56px + 30.52vw, 700px));
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px; 
+  left: -2px;
+  z-index: -1;
+  border: var(--border, 2px solid var(--text-color, #000));
 }
 
 .logo {
-  font-size: clamp(49px, 43.37px + 1.50vw, 65px);
-  margin-block-end: 20px;
   margin-block-start: -2px;
+  margin-block-end: 20px;
+  font-size: clamp(49px, 43.37px + 1.50vw, 65px);
 }
 
 .header__title {
@@ -59,76 +60,104 @@
 .card__list {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 54px;
   margin-block-end: 100px;
 }
 
 .card {
-  inline-size: var(--inline-size, clamp(375px, 260.56px + 30.52vw, 700px));
-  block-size: 100%;
-  background-color: var(--bc-color, #fff);
-  border: var(--border, 2px solid var(--text-color, #000));
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
+  background-color: var(--bc-color, #fff);
+  inline-size: var(--inline-size, clamp(375px, 260.56px + 30.52vw, 700px));
+  max-inline-size: 700px;
+  block-size: 100%;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px; 
+  left: -2px;
+  z-index: -1;
+  border: var(--border, 2px solid var(--text-color, #000));
 }
 
 .card__title {
+  padding: 5px 10px;
   font-family: inherit;
   font-size: inherit;
   font-variation-settings: var(--font-weight-title, 715);
-  padding: 5px 10px;
 }
 
 .card__image-item {
   position: relative;
+  display: block; 
+  margin: 0; 
+  padding: 0; 
 }
 
 .label {
   position: absolute;
   top: 25px;
   right: 25px;
+  z-index: 1;
+  opacity: 50%;
   font-family: var(--accent-font);
   font-size: 14px;
-  mix-blend-mode: hard-light;
   text-shadow: 0 0 1px var(--bc-color, #fff);
-  opacity: 50%;
+  mix-blend-mode: hard-light;
 }
 
 @supports (text-stroke: 1px var(--text-stroke-color, #fff)) or (-webkit-text-stroke: 1px var(--text-stroke-color, #fff)) {
   .label {
+    text-shadow: none;
     -webkit-text-stroke: 1px var(--text-stroke-color, #fff);
     text-stroke: 1px var(--text-stroke-color, #fff);
-    text-shadow: none;
   }
 }
 
 .card__image {
+   display: block;
   width: 100%;
   height: clamp(371px, 256.56px + 30.52vw, 696px);
   object-fit: cover;
   object-position: center;
-  box-shadow: 0 2px 0 var(--text-color, #000), 0 -2px 0 var(--text-color, #000);
+}
+
+.card__image-item::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  z-index: 1;
+  border: var(--border, 2px solid var(--text-color, #000));
 }
 
 .card__text {
+  margin-block-end: 25px;
+  padding: 0 25px 0;
   font-family: inherit;
   font-size: inherit;
   line-height: 21px;
-  margin: 25px 25px 0;
 }
 
-.card p:not(:first-of-type) {
-  margin-block-end: 25px;
+.card p:first-of-type:not(.label) {
+  margin-block-start: 25px;
 }
 
 .buttons {
-  justify-self: end;
-  margin-inline-end: 25px;
-  align-self: center;
-  margin-block-end: 25px;
   display: flex;
-  align-items: end;
-  gap: 6px;
+  justify-self: end;
+  align-items: center;
+  align-self: center;
+  margin-inline-end: 27px;
+  margin-block-start: -8px;
+  margin-block-end: 24px;
 }
 
 .like-icon {
@@ -136,14 +165,55 @@
 }
 
 .button {
+  position: relative;
   border: var(--border, 2px solid var(--text-color, #000));
   padding: 10px 35px;
+  overflow: hidden;
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 90%;
   background-color: var(--bc-color, #fff);
+  transition: box-shadow 0.3s ease;
   cursor: pointer;
-  align-self: end;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color, #000); 
+  transition: transform 0.5s ease-in-out; 
+}
+
+.button:hover::before {
+  transform: translateX(100%); 
+}
+
+.modal-dialog__save:hover::before {
+  transform: none; 
+}
+
+.button span {
+  position: relative;
+  z-index: 2;
+  color: var(--text-color-hover, #fff);
+  mix-blend-mode: difference;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color, #000);
+}
+
+.modal-dialog__save:focus {
+  box-shadow: none;
+  outline: none;
 }
 
 .card__list li:last-of-type {
@@ -151,17 +221,173 @@
 }
 
 .save__button {
-  padding: 15px 16px;
+  padding: 12px 16px 16px;
 }
 
 .save__button svg {
   width: 21px;
   height: 21px;
+  fill: var(--floppy-color, #fff);
+  mix-blend-mode: difference;
 }
 
-.modal-dialog__save[open] {
+.modal-dialog[open] {
   display: flex;
-  border: none;
-  cursor: default;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+.modal-dialog[open]::backdrop {
+  background-color: var(--dialog-backdrop,rgb(0, 0, 0, 0.75));
+}
+
+.modal-dialog[open] .modal-dialog__save {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
   gap: 20px;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: start;
+  text-transform: uppercase;
+  cursor: default;
+  inline-size: clamp(261px, 249.73px + 3.00vw, 293px);
+}
+
+.modal-dialog[open] .modal-dialog__save svg {
+  width: 39px;
+  height: 39px;
+}
+
+.close-button__save {
+  text-transform: uppercase;
+  inline-size: 100%;
+}
+
+.card:nth-child(1) article img {
+  filter: brightness(120%);
+}
+
+.card:nth-child(2) article img {
+  filter: hue-rotate(250deg);
+}
+
+.card:nth-child(3) article img {
+  filter: contrast(70%);
+}
+
+.card:nth-child(4) article img {
+  filter: saturate(130%);
+}
+
+.card:nth-child(5) article img {
+  filter: sepia(100%);
+}
+
+.card:nth-child(6) article img {
+  filter: invert(100%);
+}
+
+.card:nth-child(7) article img {
+  filter: blur(5px);
+}
+
+.card:nth-child(8) article img {
+  filter: saturate(150%) blur(1px) sepia(35%);
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: var(--border, 2px solid var(--text-color, #000));
+}
+
+.like-icon {
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.contour {
+  transition: fill 0.1s linear 0s;
+}
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.main-body {
+  transition: 0.3s linear 0s;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon:hover .core {
+  fill: var(--accent-color, #000);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--accent-color, #000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color, #FF0000);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color, #FF0000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color, #FF0000);
+  transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color, #FF0000);
+  transition: fill 0.3s linear 0s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color, #FF0000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .heart {
+  animation: scale 0.3s ease-in 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: flash 0.3s ease-in 0.3s;
+}
+
+@media (width <= 375px) {
+  .save__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 18px;
+}
+
+ .save__button svg {
+    width: 28px;
+    height: 28px;
+ }
 }
