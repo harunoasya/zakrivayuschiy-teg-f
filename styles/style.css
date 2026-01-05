@@ -14,7 +14,6 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: var(--font-weight-card-text, 400);
 }
 
 .header {
@@ -90,6 +89,16 @@
   font-family: inherit;
   font-size: inherit;
   font-variation-settings: var(--font-weight-title, 785);
+}
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-variation-settings: var(--font-weight-card-text, 400);
+  }
+
+  .card__title {
+    font-variation-settings: var(--font-weight-title, 785);
+  }
 }
 
 .card__image-item {
