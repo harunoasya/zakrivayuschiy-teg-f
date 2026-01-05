@@ -93,11 +93,11 @@
 
 @supports (font-variation-settings: normal) {
   .page {
-    font-variation-settings: var(--font-weight-card-text, 400);
+    font-variation-settings: 'wght' var(--font-weight-card-text, 400);
   }
 
   .card__title {
-    font-variation-settings: var(--font-weight-title, 785);
+    font-variation-settings: 'wght' var(--font-weight-title, 785);
   }
 }
 
